@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/Assignments/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+     <title>JS Project</title>
+</head>
+<body>
+    <h1 class="title">BUILD YOUR OWN CUSTOMIZED FORM</h1>
+  <form id="sel">
+    <select class="main-select" id="sel-1">
+        <option value="0">Select</option>
+        <option value="1">TextField</option>
+        <option value="2">Number</option>
+        <option value="3">Email</option>
+        <option value="4">RadioButton</option>
+        <option value="5">Select (DROP-DOWN)</option>
+        <option value="6">CheckBox</option>
+        <option value="7">Submit Button</option>
+    </select>
+</form>    
+    <button class="add-btn"onclick="fun1();">ADD INPUT</button>
+    <button class="add-btn-2"></button>
+    <div class="div1"></div>
+    <h1 class="form2-title">Your Form</h1>
+    <form class="form2"></form>
+    <button class="final-sub-btn">Submit</button>
+    <h1 class="form3-title">Your Data</h1>
+    <form class="form3"></form>
+    <p id="text_field"></p>
+    
+</body>
+
+<script type="text/javascript">
+//TEXTFIELD
+     var div = document.querySelector(".div1")
+
+     var div_textfield = document.createElement('div');
+     div_textfield.className = "div-textfield"
+
+
+     var input = document.createElement('input')
+     var inputorg = document.createElement('input');
+     var closebtn = document.createElement('button'); //remove button
+     var closebtntxt = document.createTextNode(''); 
+     var tf_fa = document.createElement('i');
+     
+     tf_fa.className = "fa fa-times"
+     closebtn.appendChild(tf_fa);
+     closebtn.appendChild(closebtntxt);
+     closebtn.setAttribute('class','close-btn')
+     var btn = document.createElement('button');
+     var btntxt = document.createTextNode("    Done"); //done button
+     btn.appendChild(btntxt);
+     btn.setAttribute("class","done-btn");
+     var label = document.createElement('label');
+     label.setAttribute("class","tf-label")
+     var labeltext;
+//NUMBER
+    var div_numfield = document.createElement('div');
+     div_numfield.className = "div-numfield"
+
+
+     var inputnum = document.createElement('input');
+     var inputorg2 = document.createElement('input');
+     var closebtn2 = document.createElement('button');
+     var closebtntxt2 = document.createTextNode('');
+     var nf_fa = document.createElement('i');
+     nf_fa.className = "fa fa-times"
+     closebtn2.appendChild(nf_fa);
+     closebtn2.appendChild(closebtntxt2);
+     closebtn2.setAttribute('class','close-btn2')
+     var btn2 = document.createElement('button');
+     var btntxt2 = document.createTextNode("Done");
+     btn2.appendChild(btntxt2);
+     btn2.setAttribute("class","done-btn-2");
+     var label2 = document.createElement('label');
+     label2.setAttribute("class","nf-label")
+     var labeltext2;
+//EMAIL
+    var div_emailfield = document.createElement('div');
+     div_emailfield.className = "div-emailfield";
+
+
+     var inputem = document.createElement('input');
+     var inputorg3 = document.createElement('input');
+     var closebtn3 = document.createElement('button');
+     var closebtntxt3 = document.createTextNode('');
+     var em_fa = document.createElement('i');
+     em_fa.className = "fa fa-times"
+     closebtn3.appendChild(em_fa);
+     closebtn3.appendChild(closebtntxt3);
+     closebtn3.setAttribute('class','close-btn3')
+     var btn3 = document.createElement('button');
+     var btntxt3 = document.createTextNode("Done");
+     btn3.appendChild(btntxt3);
+     btn3.setAttribute("class","done-btn-3");
+     var label3 = document.createElement('label');
+     label3.setAttribute("class","ef-label")
+     var labeltext3;
+//RADIO-BUTTON
+    var div_radio = document.createElement('div');
+    div_radio.className = "div-radio"
+     
+     var label4 = document.createElement('label');
+     var inputrd = document.createElement('input');
+     var inputorg4 = document.createElement('input');
+     var closebtn4 = document.createElement('button');
+     var closebtntxt4 = document.createTextNode('');
+     var rd_fa = document.createElement('i');
+     rd_fa.className = "fa fa-times";
+     closebtn4.appendChild(rd_fa);
+     closebtn4.appendChild(closebtntxt4);
+     closebtn4.setAttribute('class','close-btn4')
+     var btn4 = document.createElement('button');
+     var btntxt4 = document.createTextNode("Done");
+     btn4.appendChild(btntxt4);
+     var rdadd = document.createElement('button');
+     var rdaddtxt = document.createTextNode('Add');
+     rdadd.appendChild(rdaddtxt);
+     rdadd.setAttribute('class','rd-add-btn');
+     btn4.setAttribute("class","done-btn-4");
+     
+
+     
+     
+     
+//SELECT
+    var div_select = document.createElement('div');
+    div_select.className = "div-select";
+
+    var input_for_label = document.createElement('input')
+    var sel_label_1 = document.createElement('label');
+    var add_for_label_btn = document.createElement('button');
+    add_for_label_btntxt = document.createTextNode('DONE');
+    add_for_label_btn.appendChild(add_for_label_btntxt);
+    var add_for_select_btn = document.createElement('button');
+    add_for_select_btntxt = document.createTextNode('ADD');
+    add_for_select_btn.appendChild(add_for_select_btntxt);
+    var remove_select = document.createElement('button');
+    var remove_selectbtn_txt = document.createTextNode('')
+    var sel_fa = document.createElement('i');
+    sel_fa.className = "fa fa-times";
+    remove_select.appendChild(sel_fa);
+    remove_select.appendChild(remove_selectbtn_txt);
+    var input_selection = document.createElement('select');
+    var input_option = document.createElement('input');
+    var label_1_txt;
+//CHECKBOX    
+    var div_cb = document.createElement('div');
+    div_cb.className = "div-cb";
+    var input_for_cblabel = document.createElement('input');
+    var cb_label_1 = document.createElement('label');
+    var add_btn_for_cblabel = document.createElement('button');
+    var add_btn_for_cblabeltxt = document.createTextNode('Done');
+    add_btn_for_cblabel.appendChild(add_btn_for_cblabeltxt);
+    var input_for_cboption = document.createElement('input');
+    var add_btn_for_cboption = document.createElement('button');
+    var add_btn_for_cboptiontxt = document.createTextNode('ADD');
+    add_btn_for_cboption.appendChild(add_btn_for_cboptiontxt);
+    var remove_cb = document.createElement('button');
+    var remove_cbtxt = document.createTextNode("");
+    var cb_fa = document.createElement('i');
+    cb_fa.className = "fa fa-times";
+    remove_cb.appendChild(cb_fa);
+    remove_cb.appendChild(remove_cbtxt);
+    var cb_label1 = document.createElement('label');
+    var cb_label1_txt;
+
+//SUBMIT BUTTON    
+    var div_sub = document.createElement('div');
+    div_sub.className = "div-sub"
+    var submit = document.createElement('button');
+    submit.className = "sub-btn"
+    var subtxt = document.createTextNode('Submit');
+    submit.appendChild(subtxt);
+
+
+
+
+     function fun1()
+     {  
+        div.style.display = "block";
+        var s = document.getElementById('sel');
+        for(var i = 0; i < s.length; i++)
+        {
+            if(s[i].value == 1)
+            {
+                input.type = "text";
+                input.placeholder = "  Enter Label Name"
+                input.setAttribute("class","tf-new");
+                inputorg.setAttribute('class','input-text-2')
+                inputorg.type = "text";
+                div_textfield.appendChild(input);
+                div_textfield.appendChild(btn);
+                div_textfield.appendChild(inputorg);
+                div_textfield.appendChild(closebtn);
+                div.appendChild(div_textfield);
+            }
+           
+            else if(s[i].value==2)
+            {
+                inputnum.type = "text";
+                inputnum.placeholder = "  Enter Label Name ";
+                inputnum.setAttribute("class","nf-new");
+                inputorg2.setAttribute('class','input-text-3')
+                inputorg2.type = "number";
+                div_numfield.appendChild(inputnum);
+                div_numfield.appendChild(btn2);
+                div_numfield.appendChild(inputorg2);
+                div_numfield.appendChild(closebtn2);
+                div.appendChild(div_numfield);
+            }
+            else if(s[i].value==3)
+            {
+                inputem.type = "text";
+                inputem.placeholder = "  Enter Label Name ";
+                inputem.setAttribute("class","ef-new");
+                inputorg3.setAttribute('class','input-text-4')
+                inputorg3.type = "email"
+                div_emailfield.appendChild(inputem);
+                div_emailfield.appendChild(btn3);
+                div_emailfield.appendChild(inputorg3);
+                div_emailfield.appendChild(closebtn3);
+                div.appendChild(div_emailfield);
+            }
+            else if(s[i].value==4)
+            {
+                inputrd.type = "text";
+                inputrd.placeholder = "  Enter Label Name ";
+                inputrd.setAttribute("class","rf-new");
+                inputorg4.setAttribute('class','input-text-5')
+                
+                rdadd.setAttribute("class",'rd-add-btn')
+                div_radio.appendChild(inputrd);
+                div_radio.appendChild(btn4);
+                div_radio.appendChild(inputorg4);
+                div_radio.appendChild(closebtn4);
+                div_radio.appendChild(rdadd);
+                div.appendChild(div_radio);
+            }
+            else if(s[i].value==5)
+            {   
+                input_for_label.type = "text";
+                input_for_label.placeholder = "   Enter Label Name";
+                input_for_label.setAttribute('class','input-sel-label')
+                add_for_label_btn.setAttribute('class','input-sel-add1')
+                input_selection.setAttribute('class','input-select')
+                add_for_select_btn.setAttribute('class','input-sel-add2')
+                remove_select.setAttribute('class','remove-sel-btn')
+                input_option.setAttribute('class','input-option')
+                input_option.placeholder = "  Enter Options To Add"
+                
+                div_select.appendChild(input_for_label);
+                div_select.appendChild(add_for_label_btn);
+                div_select.appendChild(input_selection);
+                div_select.appendChild(add_for_select_btn);
+                div_select.appendChild(remove_select);
+                div_select.appendChild(input_option);
+                div.appendChild(div_select);
+            }
+            else if(s[i].value==6)
+            {
+                input_for_cblabel.type = "text";
+                input_for_cblabel.placeholder = "  Enter Label Name";
+                input_for_cblabel.className = "input-cb-label"
+                add_btn_for_cblabel.className = "input-cb-add1"
+                input_for_cboption.className = "input-cb-option"
+                add_btn_for_cboption.className = "input-cb-add2"
+                remove_cb.className = "input-cb-remove"
+                div_cb.appendChild(input_for_cblabel);
+                div_cb.appendChild(add_btn_for_cblabel);
+                div_cb.appendChild(input_for_cboption);
+                div_cb.appendChild(add_btn_for_cboption);
+                div_cb.appendChild(remove_cb);
+                div.appendChild(div_cb);
+            }
+            else if(s[i].value==7)
+            {
+                div_sub.appendChild(submit);
+                div.appendChild(div_sub);
+            }
+            else
+            {
+                alert("Please Select One Option");
+            }
+        }
+     }
+
+
+     btn.addEventListener("click", addlabel)
+     function addlabel()
+     {
+         labeltext = document.createTextNode(input.value +" : ");
+         input.remove();
+         btn.remove();
+
+         label.appendChild(labeltext);
+         div_textfield.appendChild(label);
+     }
+
+     closebtn.addEventListener("click",remove1)
+     function remove1()
+     {
+        div_textfield.remove();
+     }
+
+     btn2.addEventListener("click", addlabel1)
+     function addlabel1()
+     {
+        labeltext2 = document.createTextNode(inputnum.value +" : ");
+        btn2.remove();
+        inputnum.remove();
+        label2.appendChild(labeltext2);
+        div_numfield.appendChild(label2);
+    }
+
+    closebtn2.addEventListener("click",remove2)
+     function remove2()
+     {
+        div_numfield.remove();
+     }
+
+     btn3.addEventListener("click", addlabel2)
+     function addlabel2()
+     {
+        labeltext3 = document.createTextNode(inputem.value +" : ");
+        btn3.remove();
+        inputem.remove();
+        label3.appendChild(labeltext3);
+        div_emailfield.appendChild(label3);
+    }
+
+    closebtn3.addEventListener("click",remove3)
+     function remove3()
+     {
+       div_emailfield.remove();
+     }
+
+
+     btn4.addEventListener("click", addlabel3)
+     function addlabel3()
+     {
+        label4.setAttribute("class","rf-label-1")
+        labeltext4 = document.createTextNode(inputrd.value +" : ");
+        btn4.remove();
+        inputrd.remove();
+        label4.appendChild(labeltext4);
+        div_radio.appendChild(label4);
+    }
+
+    var remove_rdb1;
+    var remove_rdspan;
+    
+     rdadd.addEventListener("click", addradio)
+     rdadd.type="button"
+     function addradio()
+     {
+    
+        var rdb1 = document.createElement("input");  
+        var rd_span = document.createElement("span"); 
+        remove_rdb1 = rdb1;
+        remove_rdspan = rd_span;
+        rdb1.type="radio";
+        rd_span.className = "rd-span"
+        var rdb_text = inputorg4.value;
+        rd_span.innerHTML = rdb_text;
+        rdb1.name = inputrd.value;
+        rdb1.value = inputorg4.value;
+        rdb1.className = "rd-button-1"
+        // rdb1.appendChild(rd_span);
+        div_radio.appendChild(rdb1);
+        div_radio.appendChild(rd_span);
+        div_radio.appendChild(label4);
+
+        
+     }
+
+
+     closebtn4.addEventListener("click",remove4)
+     function remove4()
+     {
+        div_radio.remove();
+     }
+
+      add_for_label_btn.addEventListener("click", add_sel_label)
+      function add_sel_label()
+      {
+          label_1_txt = document.createTextNode(input_for_label.value + " : ");
+          sel_label_1.appendChild(label_1_txt);
+          div_select.appendChild(sel_label_1);
+          sel_label_1.setAttribute("class","sel-label-1")
+          input_for_label.remove();
+          add_for_label_btn.remove();
+      }
+
+      add_for_select_btn.addEventListener('click',add_sel_option)
+      add_for_label_btn.type = "button";
+      function add_sel_option()
+      {
+        var input_select_option1 = document.createElement('option');
+        var input_select_optiontxt1 = document.createTextNode(input_option.value);
+        input_select_option1.value = input_option.value;
+        input_select_option1.appendChild(input_select_optiontxt1);
+        input_selection.appendChild(input_select_option1);
+      }
+
+      remove_select.addEventListener("click", remove5)
+      function remove5()
+      {
+        
+        div_select.remove();
+
+      }
+
+      add_btn_for_cblabel.addEventListener("click", add_cb_label)
+      add_btn_for_cblabel.type = "button";
+      function add_cb_label()
+      {
+        cb_label1.className = "cb-label-1";
+        cb_label1_txt = document.createTextNode(input_for_cblabel.value + " : ");
+        cb_label1.appendChild(cb_label1_txt); 
+        div_cb.appendChild(cb_label1);
+        input_for_cblabel.remove();
+        add_btn_for_cblabel.remove();
+
+      }
+
+      add_btn_for_cboption.addEventListener("click",add_checkbox)
+      add_btn_for_cboption.type = "button";
+      function add_checkbox()
+      {
+        
+
+        var cb = document.createElement('input');
+       var cb_span = document.createElement("span"); 
+       cb.type="checkbox";
+       cb.className = "cb-box"
+       cb_span.className = "cb-span"
+       var cb_text = input_for_cboption.value;
+       cb_span.innerHTML = cb_text;
+       cb.name = input_for_cblabel.value;
+       cb.value = input_for_cboption.value;
+       cb.appendChild(cb_span);
+       div_cb.appendChild(cb);
+       div_cb.appendChild(cb_span);
+       div_cb.appendChild(div);
+
+      }
+
+      remove_cb.addEventListener("click",remove_checkbox)
+      remove_cb.type = "button"
+      function remove_checkbox()
+      {
+          div_cb.remove();
+      }
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","div-2");
+      var form2 = document.querySelector(".form2");
+      var form3 = document.querySelector(".form3");
+      var final_sub = document.querySelector('.final-sub-btn');
+      submit.addEventListener("click", showform)
+      submit.type = "button"
+      function showform()
+      {
+            input_option.remove();
+            input_for_cboption.remove();
+            inputorg4.remove();
+
+            document.getElementsByTagName('select')[0].style.display = "none";
+            document.getElementsByClassName('form2-title')[0].style.display = "block";
+            form2.innerHTML = div.innerHTML;
+            
+
+            var all = document.querySelectorAll('.div1')
+            for(var i = 0; i<all.length;i++)
+            {
+                all[i].style.display = "none";
+            }
+            var close_buttons = document.querySelectorAll('button')
+            for(var i = 0; i < close_buttons.length; i++)
+            {
+                close_buttons[i].style.display = "none";
+            }
+            document.getElementsByClassName('form2')[0].style.display = "block";
+            
+            document.getElementsByClassName('form3-title')[0].style.display = "block";
+            final_sub.style.display = "block";
+     }
+
+        var tf_label = document.createElement('p');
+        var tf_input = document.createElement('p');
+        var tf_div = document.createElement('div');
+        tf_div.className = "tf-div"
+
+        var nf_label = document.createElement('p');
+        var nf_input = document.createElement('p');
+        var nf_div = document.createElement('div');
+        nf_div.className = "tf-div"
+
+        var ef_label = document.createElement('p');
+        var ef_input = document.createElement('p');
+        var ef_div = document.createElement('div');
+        ef_div.className = "tf-div"
+
+        var rf_label = document.createElement('p');
+        var rf_input = document.createElement('p');
+        var rf_div = document.createElement('div');
+        rf_div.className = "tf-div"
+
+        var sel_label = document.createElement('p');
+        var sel_input = document.createElement('p');
+        var sel_div = document.createElement('div');
+        sel_div.className = "tf-div"
+
+        var cb_label = document.createElement('p');
+        var cb_input = document.createElement('p');
+        var cb_div = document.createElement('div');
+        cb_div.className = "tf-div"
+
+        var final_data = document.querySelector('.form3');
+        final_sub.addEventListener("click", showdata)
+        final_sub.type = "button";
+        
+        function showdata()
+        {
+           document.querySelector('.form3-title').style.visibility = "visible";
+           document.querySelector('.form3').style.display = "block";
+
+           var sel_options = document.querySelectorAll(".form2 .div-select .input-select");
+           
+           var all_inputs = document.querySelectorAll('.form2 input');
+           
+           for(var i = 0; i < all_inputs.length; i++)
+           {
+               if(all_inputs[i].className=="input-text-2")
+               {
+                   
+                   tf_label.innerHTML = input.value + " : ";
+                   tf_input.innerHTML = all_inputs[i].value;
+                   tf_div.appendChild(tf_label);
+                   tf_div.appendChild(tf_input);
+                   final_data.appendChild(tf_div);
+               }
+               if(all_inputs[i].type==="number")
+               {
+                   nf_label.innerHTML = inputnum.value + " : ";
+                   nf_input.innerHTML = all_inputs[i].value;
+                   nf_div.appendChild(nf_label);
+                   nf_div.appendChild(nf_input);
+                   final_data.appendChild(nf_div);
+               }
+               if(all_inputs[i].type==="email")
+               {
+                   ef_label.innerHTML = inputem.value + " : ";
+                   ef_input.innerHTML = all_inputs[i].value;
+                   ef_div.appendChild(ef_label);
+                   ef_div.appendChild(ef_input);
+                   final_data.appendChild(ef_div);
+               }
+               if(all_inputs[i].type==="radio")
+               {
+                   if(all_inputs[i].checked)
+                   {
+                    rf_label.innerHTML = inputrd.value + " : ";
+                    rf_input.innerHTML = all_inputs[i].value;
+                    rf_div.appendChild(rf_label);
+                    rf_div.appendChild(rf_input);
+                    final_data.appendChild(rf_div);
+                   }
+               }
+               if(all_inputs[i].type==="checkbox")
+               {
+                   if(all_inputs[i].checked)
+                   {
+                    
+                    cb_label.innerHTML = input_for_cblabel.value +" : ";
+                    cb_input.innerHTML += all_inputs[i].value +" , ";
+                    cb_div.appendChild(cb_label);
+                    cb_div.appendChild(cb_input);
+                    final_data.appendChild(cb_div);
+                   }
+               }
+
+           }
+              for(var i = 0; i < sel_options.length; i++)
+                {
+                  sel_label.innerHTML = input_for_label.value + " : ";
+                  sel_input.innerHTML = sel_options[i].value;
+                  sel_div.appendChild(sel_label);
+                  sel_div.appendChild(sel_input);
+                  final_data.appendChild(sel_div);
+                }
+            
+        }
+   
+
+     
+     
+
+</script>
+</html>
+
+
+
+
